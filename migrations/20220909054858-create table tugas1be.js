@@ -1,8 +1,10 @@
 'use strict';
 
+const sequelize = require("sequelize");
+
 module.exports = {
     async up(queryInterface, Sequelize) {
-        await queryInterface.createTable("users", {
+        await queryInterface.createTable("userBE", {
 
             id: {
                 type: sequelize.INTEGER,
@@ -11,12 +13,12 @@ module.exports = {
                 allowNull: false,
             },
             email: {
-                type: sequelize.email,
+                type: sequelize.STRING,
                 allowNull: false,
                 unique: true,
             },
             password: {
-                type: sequelize.password,
+                type: sequelize.STRING,
                 allowNull: false,
             },
             fullName: {
@@ -58,11 +60,6 @@ module.exports = {
     },
 
     async down(queryInterface, Sequelize) {
-        /**
-         * Add reverting commands here.
-         *
-         * Example:
-         * await queryInterface.dropTable('users');
-         */
-    }
+        await queryInterface.dropTable("userBE");
+    },
 };

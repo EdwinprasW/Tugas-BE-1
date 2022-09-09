@@ -1,8 +1,9 @@
+const { handlerGetAllUser } = require("./handler");
+
 const express = Require('express');
 const router = express.Router();
 
-router.get("/", (req, res, next) => {
-    res.send("respond with a resource");
-});
+//Get User
+router.get('/', handlerGetAllUser);
 
 module.exports = router;
